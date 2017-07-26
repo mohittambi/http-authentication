@@ -20,6 +20,7 @@ if (!($data = http_digest_parse($_SERVER['PHP_AUTH_DIGEST'])) ||
 {
     header('WWW-Authenticate: Basic realm="'.$realm.'"');
     header('HTTP/1.0 401 Unauthorized');
+    die('<script>window.location.reload();</script>');
     echo "You must enter a valid login ID and password to access this resource\n";
     exit;
 }
